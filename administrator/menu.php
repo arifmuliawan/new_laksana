@@ -39,9 +39,9 @@ $page               = $_GET['p'];
                     {
                     ?>    
                     <li>
-                        <a href="?p=menu">
+                        <a href="?p=menu_mng">
                             <?php
-                            if($page=='menu')
+                            if($page=='menu_mng')
                             {
                                 echo '<font color="#fff"><i class="fas fa-check-circle"></i></font>';
                             }
