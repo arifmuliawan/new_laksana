@@ -23,7 +23,7 @@ if($tab=='banner')
             if($update==1)
             {
                 echo "<script type='text/javascript'> alert('deleted successfully!');</script>";
-                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php?p=home&t=banner">';
+                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php?p=home_mng&t=banner">';
             }
         }
     }
@@ -68,7 +68,7 @@ if($tab=='banner')
             if($update==1)
             {
                 echo "<script type='text/javascript'> alert('submitted successfully!');</script>";
-                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php?p=home&t=banner">';
+                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php?p=home_mng&t=banner">';
             }
         }
     }
@@ -120,7 +120,7 @@ if($tab=='banner')
                         if (in_array("3", $access_admin))
                         {
                     ?>    
-                            <a href="?p=home&t=banner&a=3&id=2">
+                            <a href="?p=home_mng&t=banner&a=3&id=2">
                                 <button type="button" class="btn btn-warning">
                                     <i class='fas fa-pen'></i>
                                 </button>
@@ -130,7 +130,7 @@ if($tab=='banner')
                         if (in_array("4", $access_admin))
                         {
                     ?>        
-                            <a href="?p=home&t=banner&a=4&id=2" onclick="return confirm('Are you sure want to delete ?')">  
+                            <a href="?p=home_mng&t=banner&a=4&id=2" onclick="return confirm('Are you sure want to delete ?')">  
                                 <button type="button" class="btn btn-danger">
                                     <i class='fas fa-trash'></i>
                                 </button>
