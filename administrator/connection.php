@@ -11,5 +11,5 @@ if ($con -> connect_errno) {
   echo "Failed to connect to MySQL: " . $con -> connect_error;
   exit();
 }
-$base_url	= 'http://localhost/new-laksana/';
+$base_url	= 'http://localhost/new_laksana/';
 ?>
