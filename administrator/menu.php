@@ -57,9 +57,9 @@ $page               = $_GET['p'];
                     }
                     ?>
                     <li>
-                        <a href="?p=home">
+                        <a href="?p=home_mng">
                             <?php
-                            if($page=='home')
+                            if($page=='home_mng')
                             {
                                 echo '<font color="#fff"><i class="fas fa-check-circle"></i></font>';
                             }
