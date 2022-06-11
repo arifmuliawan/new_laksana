@@ -72,9 +72,9 @@ $page               = $_GET['p'];
                         </a>
                     </li>
                     <li>
-                        <a href="?p=contact">
+                        <a href="?p=contact_mng">
                             <?php
-                            if($page=='contact')
+                            if($page=='contact_mng')
                             {
                                 echo '<font color="#fff"><i class="fas fa-check-circle"></i></font>';
                             }
