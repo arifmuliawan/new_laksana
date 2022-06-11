@@ -17,16 +17,16 @@
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs tab-nav-right" role="tablist">
                                 <li>
-                                    <a href="index.php?p=home&t=highlight" <?php if($tab=='' || $tab=='highlight'){ echo 'class="active show"';} ?>>Highlight</a>
+                                    <a href="index.php?p=home_mng&t=highlight" <?php if($tab=='' || $tab=='highlight'){ echo 'class="active show"';} ?>>Highlight</a>
                                 </li>
                                 <li>
-                                    <a href="index.php?p=home&t=banner" <?php if($tab=='banner'){ echo 'class="active show"';} ?>>Banner</a>
+                                    <a href="index.php?p=home_mng&t=banner" <?php if($tab=='banner'){ echo 'class="active show"';} ?>>Banner</a>
                                 </li>
                                 <li>
-                                    <a href="index.php?p=home&t=tagging" <?php if($tab=='tagging'){ echo 'class="active show"';} ?>>Tagging</a>
+                                    <a href="index.php?p=home_mng&t=tagging" <?php if($tab=='tagging'){ echo 'class="active show"';} ?>>Tagging</a>
                                 </li>
                                 <li>
-                                    <a href="index.php?p=home&t=individual" <?php if($tab=='individual'){ echo 'class="active show"';} ?>>Individual Series</a>
+                                    <a href="index.php?p=home_mng&t=individual" <?php if($tab=='individual'){ echo 'class="active show"';} ?>>Individual Series</a>
                                 </li>
                             </ul>
                             <?php
