@@ -20,6 +20,11 @@
                                     <a href="index.php?p=about_mng&t=highlight" <?php if($tab=='' || $tab=='highlight'){ echo 'class="active show"';} ?>>Highlight</a>
                                 </li>
                             </ul>
+                            <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                                <li>
+                                    <a href="index.php?p=about_mng&t=banner" <?php if($tab=='banner'){ echo 'class="active show"';} ?>>Banner</a>
+                                </li>
+                            </ul>
                             <?php
                             if($tab=='')
                             {
