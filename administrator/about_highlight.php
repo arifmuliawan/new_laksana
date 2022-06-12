@@ -35,7 +35,7 @@ if($tab=='' || $tab=='highlight')
         $title_highlight    = $highlight1.'|'.$highlight2;
         if($action_highlight=='3')
         {
-            $update     = mysqli_query($con,"UPDATE home_mng set title='$title_highlight',description='$desc_highlight',update_by='$username',update_date='$now' WHERE id='1'");
+            $update     = mysqli_query($con,"UPDATE about_mng set title='$title_highlight',description='$desc_highlight',update_by='$username',update_date='$now' WHERE id='1'");
             if($update==1)
             {
                 echo "<script type='text/javascript'> alert('submitted successfully!');</script>";
@@ -45,7 +45,7 @@ if($tab=='' || $tab=='highlight')
     }
     else
     {
-        $query_highlight    = mysqli_query($con,"SELECT * from home_mng WHERE id='1' LIMIT 1");
+        $query_highlight    = mysqli_query($con,"SELECT * from about_mng WHERE id='1' LIMIT 1");
         $data_highlight     = mysqli_fetch_array($query_highlight);
         $title_highlight    = explode('|',$data_highlight['title']);
         $highlight1         = $title_highlight[1];
