@@ -110,6 +110,7 @@ if($tab=='point')
         $title_dpoint       = $exp_dpoint[0];
         $highlight_dpoint   = $exp_dpoint[1];
         $desc_dpoint        = $data_dpoint['description'];
+        $url_dpoint         = $data_dpoint['url'];
         if($action_point=='1')
         {
             $status_form = "disabled";
@@ -133,9 +134,50 @@ if($tab=='point')
             $highlight_point    = $_POST['highlight'];
             $desc_point         = $_POST['desc'];
             $imp_point          = $title_dpoint.'|'.$highlight_point;
+            if($link=="")
+            {
+                if($_FILES['banner']['name']!='')
+                {
+                    $ekstensi_diperbolehkan = array('mp4','mov','png','jpg','jpeg');
+                    $nama_banner            = $_FILES['banner']['name'];
+                    $x_banner               = explode('.', $nama_banner);
+                    $ekstensi_banner        = strtolower(end($x_banner));
+                    $ukuran_banner          = $_FILES['banner']['size'];
+                    $file_tmp_banner        = $_FILES['banner']['tmp_name'];
+                    $file_directory_banner  = "../assets/about us/".$nama_banner;
+                    $file_db_banner         = "assets/about us/".$nama_banner;
+                    if(in_array($ekstensi_banner, $ekstensi_diperbolehkan) === true)
+                    {
+                        if($ukuran_banner < 104857600)
+                        {          
+                            move_uploaded_file($file_tmp_banner, $file_directory_banner);
+                            $name_banner    = $file_db_banner;
+                        }
+                        else
+                        {
+                            $error          = 1;
+                            $msg_banner     = "UKURAN FILE TERLALU BESAR";
+                        }
+                    }    
+                    else
+                    {
+                        $error              = 1;
+                        $msg_banner         = "EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN";
+                    }    
+                }
+                else
+                {
+                    $name_banner            = "";
+                }
+                $url_point = $name_banner;
+            } 
+            else
+            {
+                $url_point = $link_individual;
+            }
             if($action_point=='3')
             {
-                $update     = mysqli_query($con,"UPDATE about_mng set title='$imp_point',description='$desc_point',update_by='$username',update_date='$now' WHERE id='$id' AND code='3'");
+                $update     = mysqli_query($con,"UPDATE about_mng set title='$imp_point',description='$desc_point',url='$url_point',update_by='$username',update_date='$now' WHERE id='$id' AND code='3'");
                 if($update==1)
                 {
                     echo "<script type='text/javascript'> alert('submitted successfully!');</script>";
@@ -157,6 +199,68 @@ if($tab=='point')
                             <div class="form-group form-float">
                                 <label class="form-label"><b>Description</b></label>
                                 <textarea <?php if($status_form==""){ echo 'class="ckeditor" id="ckedtor"'; } ?> name="desc" style="margin-top: 0px; margin-bottom: 0px; height: 200px;" <?php echo $status_form ?>><?php echo $desc_dpoint ?></textarea>
+                            </div>
+                            <div class="form-group form-float">
+                                <label class="form-label"><b>Image / Video</b></label><br>
+                                <?php
+                                if($url_dpoint!="")
+                                {
+                                    if(strpos($url_dpoint, "youtube") !== false)
+                                    {
+                                        echo "1";
+                                ?>        
+                                        <iframe width="500" height="300" src="<?php echo $url_dpoint ?>"></iframe>
+                                <?php
+                                    }
+                                    else
+                                    {
+                                        $y_point               = explode('.', $url_dpoint);
+                                        $cariekstensi_point    = strtolower(end($y_point));
+                                        if($url_dpoint!="" && ($cariekstensi_point=="mp4" || $cariekstensi_point=="mov"))
+                                        {
+                                ?>    
+                                            <video width="500" height="300" controls>
+                                                <source src="<?php echo $base_url.''.$url_dpoint ?>" type="video/mp4">
+                                            </video> 
+                                <?php
+                                        }
+                                        if($url_dpoint!="" && ($cariekstensi_point=="jpeg" || $cariekstensi_point=="jpg" || $cariekstensi_point=="png"))
+                                        {
+                                ?>    
+                                            <img src="<?php echo $base_url.''.$url_dpoint ?>" width="25%"> 
+                                <?php
+                                        }
+                                    } 
+                                }   
+                                ?>
+                                <!--<p style="font-size: 10px;font-style: italic;"> Image logo size: 110x110px </p>-->
+                                <?php
+                                if($tab=='point' &&  $action>"1")
+                                {
+                                ?>
+                                    <br>
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                                        <li role="presentation">
+                                            <a href="#upload" data-toggle="tab" class="active show">Upload Image / Video</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#link" data-toggle="tab">Link Youtube</a>
+                                        </li>
+                                    </ul>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade in active show" id="upload">
+                                            <input name="banner" type="file" multiple <?php echo $status_form ?>>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="link">
+                                            <label class="form-label"><b>URL Youtube</b></label><br>
+                                            <input name="link" type="text" value="<?php echo $link_point ?>" <?php echo $status_form ?>/>
+                                        </div>
+                                    </div>
+                                <?php
+                                }
+                                ?>
                             </div>
                             <?php
                             if($tab=='point' &&  $action>'1')
