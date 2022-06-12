@@ -48,8 +48,8 @@ if($tab=='' || $tab=='highlight')
         $query_highlight    = mysqli_query($con,"SELECT * from about_mng WHERE id='1' LIMIT 1");
         $data_highlight     = mysqli_fetch_array($query_highlight);
         $title_highlight    = explode('|',$data_highlight['title']);
-        $highlight1         = $title_highlight[1];
-        $highlight2         = $title_highlight[2];
+        $highlight1         = $title_highlight[0];
+        $highlight2         = $title_highlight[1];
         $desc_highlight     = $data_highlight['description'];
                         
     }
