@@ -72,6 +72,21 @@ $page               = $_GET['p'];
                         </a>
                     </li>
                     <li>
+                        <a href="?p=about_mng">
+                            <?php
+                            if($page=='about_mng')
+                            {
+                                echo '<font color="#fff"><i class="fas fa-check-circle"></i></font>';
+                            }
+                            else 
+                            {
+                                echo '<font color="#666"><i class="far fa-circle"></i>';        # code...
+                            }        
+                            ?>
+                            <span>About Management</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="?p=contact_mng">
                             <?php
                             if($page=='contact_mng')
