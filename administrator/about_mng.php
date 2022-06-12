@@ -22,6 +22,9 @@
                                 <li>
                                     <a href="index.php?p=about_mng&t=banner" <?php if($tab=='banner'){ echo 'class="active show"';} ?>>Banner</a>
                                 </li>
+                                <li>
+                                    <a href="index.php?p=about_mng&t=point" <?php if($tab=='point'){ echo 'class="active show"';} ?>>About Point</a>
+                                </li>
                             </ul>
                             <?php
                             if($tab=='')
