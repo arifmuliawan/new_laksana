@@ -301,15 +301,13 @@ if($tab=='point')
                             }
                             ?>    
                         </form>
+                        <br><br>
+                        <?php include ('poin_gallery.php'); ?>
                     </div>
                 </div>
-            </div> 
-            <ul class="nav nav-tabs tab-nav-right" role="tablist">
-                <li>
-                    <a href="?p=work&t=category_gallery&id=<?php echo $id ?>&sty=1" <?php if($subtyp=='' || $subtyp=='1'){ echo 'class="active show"';} ?>>Image</a>
-                </li>
-            </ul>       
+            </div>        
         </div>
+        
 <?php
     }
 }
